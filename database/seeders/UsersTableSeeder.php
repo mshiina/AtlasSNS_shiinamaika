@@ -5,6 +5,7 @@ namespace Database\Seeders;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Crypt;
 
 class UsersTableSeeder extends Seeder
 {
@@ -20,12 +21,12 @@ class UsersTableSeeder extends Seeder
             [//'id'=>'1',
              'username'=>'Atlas一郎',
              'email'=>'aaa@mail.com',
-             'password'=>'0001',
+             'password'=>Crypt::encryptString('0001'),
              'bio'=>'自己紹介文を登録できます。'],
              [//'id'=>'2',
                 'username'=>'Atlas二郎',
                 'email'=>'bbb@mail.com',
-                'password'=>'0002',
+                'password'=>Crypt::encryptString('0002'),
                 'bio'=>'自己紹介文を登録できます。']
         ]);
     }
