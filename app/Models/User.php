@@ -33,21 +33,21 @@ class User extends Authenticatable
         'remember_token',
     ];
 
-    public function follows(){
-        return $this->belongsToMany(
-            '//app/Models/User.php',//user.phpの場所
-            'follows',//中間テーブル名
-            'following_id',//自分の中間テーブルカラム名
-            'followed_id',//相手の中間テーブルカラム名
-        );
-    }
+    // public function follows(){
+    //     return $this->belongsToMany(
+    //         '//app/Models/User.php',//user.phpの場所
+    //         'follows',//中間テーブル名
+    //         'following_id',//自分の中間テーブルカラム名
+    //         'followed_id',//相手の中間テーブルカラム名
+    //     );
+    // }
 
-    public function followers(){
-        return $this->belongsToMany(
-            '//app/Models/User.php',//user.phpの場所
-            'follows',//中間テーブル名
-            'followed_id',//自分の中間テーブルカラム名
-            'following_id',//相手の中間テーブルカラム名
-        );
-    }
+    // public function followers(){
+    //     return $this->belongsToMany(
+    //         '//app/Models/User.php',//user.phpの場所
+    //         'follows',//中間テーブル名
+    //         'followed_id',//自分の中間テーブルカラム名
+    //         'following_id',//相手の中間テーブルカラム名
+    //     );
+    // }
 }
