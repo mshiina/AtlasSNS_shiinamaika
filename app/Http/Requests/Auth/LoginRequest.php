@@ -24,7 +24,7 @@ class LoginRequest extends FormRequest
      *
      * @return array<string, \Illuminate\Contracts\Validation\Rule|array|string>
      */
-    public function rules(): array
+    public function rules(): array //セッション変数
     {
         return [
             'email' => ['required', 'string', 'email'],

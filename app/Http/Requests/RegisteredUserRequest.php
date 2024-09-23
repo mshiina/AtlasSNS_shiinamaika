@@ -32,8 +32,18 @@ class RegisteredUserRequest extends FormRequest
             //
             'username' => ['required','min:2','max:12'],
             'email' => ['required','min:5','max:40','unique:posts','email'],
-            'password' => ['required','alpha-num','min:8','max:20'],
-            'passwordConfirm' => ['required','alpha-num','min:8','max:20','some:password'],
+            'password' => ['required','alpha_num:ascii','min:8','max:20'],
+            'password_confirmation' => ['required','alpha_num:ascii','min:8','max:20','confirmed'],
+        ];
+    }
+
+    public function attributes()
+    {
+        return [
+            'username' => 'ユーザー名',
+            'email' => 'メールアドレス',
+            'password' => 'パスワード',
+            'password_confirmation' => 'パスワード確認',
         ];
     }
 }

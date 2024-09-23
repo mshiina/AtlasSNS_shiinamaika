@@ -7,6 +7,8 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
+use Illuminate\Database\Eloquent\Model;
+use App\Models\User;
 
 class User extends Authenticatable
 {
@@ -33,21 +35,17 @@ class User extends Authenticatable
         'remember_token',
     ];
 
-    // public function follows(){
+    // public function users(){
     //     return $this->belongsToMany(
-    //         '//app/Models/User.php',//user.phpの場所
+    //         '//app/Models/user.php',//user.phpの場所・多対多のリレーション
     //         'follows',//中間テーブル名
     //         'following_id',//自分の中間テーブルカラム名
-    //         'followed_id',//相手の中間テーブルカラム名
-    //     );
-    // }
-
-    // public function followers(){
-    //     return $this->belongsToMany(
-    //         '//app/Models/User.php',//user.phpの場所
-    //         'follows',//中間テーブル名
-    //         'followed_id',//自分の中間テーブルカラム名
     //         'following_id',//相手の中間テーブルカラム名
     //     );
-    // }
+    // } laravel6時点の記載方法
+
+    public function roles(){
+        return $this->belongsToMany(Role::class);
+    }
 }
+
